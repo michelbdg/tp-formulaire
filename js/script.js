@@ -6,6 +6,7 @@ function envoyer(){
    localStorage.setItem("mdp", document.getElementById('password').value);
    localStorage.setItem("mdp2", document.getElementById('password2').value);
    window.location = "connexion.html";
+   
 };
 
 function annuler(){
@@ -27,16 +28,17 @@ $(document).ready(function(){
   //Afficher les mots de passe 
 
    $('#flexCheckDefault').click(function(){
-      //le mot de passe apparait
-      $('#password').attr('type', 'text').show();
-      $('#password2').attr('type', 'text').show();
-
-      //le mot de passe disparait
-      $('#password').attr('type', 'text').hide();
+      if('password' == $('#password').attr('type') && $('#password2').attr('type')){
+         $('#password').prop('type', 'text');
+         $('#password2').prop('type', 'text');
+      }else{
+         $('#password').prop('type', 'password');
+         $('#password2').prop('type', 'password');
+      }
    });
 
    //Afficher la valeur numérique 
    $('#customRange1').click(function(){
-      $('#customRange1')
+      $('#customRange1').val('#customRange1');
    });
 });
